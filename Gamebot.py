@@ -12,12 +12,12 @@ from pathlib import Path
 os.chdir(os.path.dirname(__file__))
 print(os.getcwd())
 
-# wait_load = webdriver.ChromeOptions()
-# wait_load.add_experimental_option("detach",True)
-# web_service = Service(executable_path='/Users/khatiwadaprajwal22icloud.com/Desktop/Visual studio code/Game-bot/chromedriver')
-# driver = webdriver.Chrome(service=web_service,options=wait_load)
+wait_load = webdriver.ChromeOptions()
+wait_load.add_experimental_option("detach",True)
+web_service = Service(executable_path='/Users/khatiwadaprajwal22icloud.com/Desktop/Visual studio code/Game-bot/chromedriver')
+driver = webdriver.Chrome(service=web_service,options=wait_load)
 
-# driver.get("https://plays.org/whack-a-mole/")
+driver.get("https://plays.org/whack-a-mole/")
 moles = ['assets/mole1_mac.png','assets/mole2_mac.png']
 continue_button = 'assets/continue_button_mac.png'
 start_button = 'assets/start_button_mac.png'
@@ -52,7 +52,7 @@ def whack_mole():
     # search_region = (screen_width // 4, screen_height // 4, screen_width // 2, screen_height // 2)
     for mole in moles:
         try:
-            x,y =  gui.locateCenterOnScreen(mole,confidence=0.8,grayscale=True)
+            x,y =  gui.locateCenterOnScreen(mole,confidence=0.8,grayscale=True) # takes the exact size of Screenshot to take out coodrinate
             gui.click(x/2,y/2)
             print("Mole Whacked")
             return
